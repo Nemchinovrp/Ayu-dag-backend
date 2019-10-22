@@ -1,11 +1,11 @@
 package ru.ayu_dag.backend.service;
 
-import ru.ayu_dag.backend.model.User;
-import ru.ayu_dag.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.ayu_dag.backend.model.User;
+import ru.ayu_dag.backend.repository.UserRepository;
 
 import java.util.List;
 

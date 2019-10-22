@@ -1,7 +1,5 @@
 package ru.ayu_dag.backend.config;
 
-import ru.ayu_dag.backend.jwt.JWTAuthorizationFilter;
-import ru.ayu_dag.backend.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import ru.ayu_dag.backend.jwt.JWTAuthorizationFilter;
+import ru.ayu_dag.backend.jwt.JwtTokenProvider;
 
 @Configuration
 @EnableWebSecurity
