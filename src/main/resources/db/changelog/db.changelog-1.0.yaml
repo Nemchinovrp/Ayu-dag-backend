@@ -51,7 +51,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 3
-      author: image
+      author: nemchin
       changes:
         - createTable:
             tableName: image

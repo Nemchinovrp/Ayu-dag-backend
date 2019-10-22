@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nemchin
+      changes:
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: name
+                  value: "МРИО"
+              - column:
+                  name: description
+                  value: "Отель класса люкс"
+              - column:
+                  name: location
+                  value: "ЯЛТА"
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: name
+                  value: "PORTE_MARE"
+              - column:
+                  name: description
+                  value: "Отель люкс"
+              - column:
+                  name: location
+                  value: "Алушта"
