@@ -68,7 +68,7 @@ databaseChangeLog:
                   type: varchar(255)
               - column:
                   name: body
-                  type: blob
+                  type: longblob
               - column:
                   name: hotel_id
                   type: int
