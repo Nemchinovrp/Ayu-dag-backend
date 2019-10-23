@@ -10,18 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.ayu_dag.backend.jwt.JwtTokenProvider;
+import ru.ayu_dag.backend.model.Hotel;
 import ru.ayu_dag.backend.model.Role;
 import ru.ayu_dag.backend.model.User;
+import ru.ayu_dag.backend.repository.HotelRepository;
 import ru.ayu_dag.backend.service.UserService;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
     private final JwtTokenProvider tokenProvider;
     private final UserService userService;
-
+    private final HotelRepository hotelRepository;
 
     @PostMapping("/api/user/registration")
     public ResponseEntity<?> register(@RequestBody User user) {
@@ -42,5 +45,10 @@ public class UserController {
         User user = userService.findByUsername(authenticationToken.getName());
         user.setToken(tokenProvider.generateToken(authenticationToken));
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @GetMapping("/api/user/all_hotel")
+    public List<Hotel> getAllHotels() {
+        return hotelRepository.findAll();
     }
 }
