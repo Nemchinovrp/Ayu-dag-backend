@@ -1,2 +1,9 @@
+stages:
+- name: Second
+  steps:
+  - runScriptConfig:
+      image: java:8
+      shellScript: |
+        gradle clean build
 timeout: 60
 notification: {}
