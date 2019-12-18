@@ -1,11 +1,17 @@
 stages:
-- name: build
-
-
-build:
-  stage: build
-  tags:
-    - gradle
-  script:
-    - 'gradle clean build'
-
+  - name: Build
+    steps:
+      - runScriptConfig:
+          image: gradle:4.5.1-jdk-7
+          shellScript: |-
+            gradle clean build
+#  - name: Publish
+#    steps:
+#      - publishImageConfig:
+#          dockerfilePath: ./Dockerfile
+#          buildContext: .
+#          tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
+#  - name: Deploy
+#    steps:
+#      - applyYamlConfig:
+#          path: ./deployment.yaml
