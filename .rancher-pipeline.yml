@@ -1,7 +1,19 @@
+image: java:8
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
 stages:
-  - name: Build
-    steps:
-      - runScriptConfig:
-          image: gradle:4.5.1-jdk-7
-          shellScript: |-
-            gradle clean build
+  - name: build
+  - name: test
+
+build:
+  stage: build
+  script:
+    - ./gradlew -g /cache/.gradle clean assemble
+  allow_failure: false
+
+test:
+  stage: test
+  script:
+    - ./gradlew -g /cache/.gradle check
