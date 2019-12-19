@@ -4,5 +4,5 @@ stages:
       - runScriptConfig:
           image: gradle:6.0.1-jdk8
           shellScript: |-
-            gradle clean
+            gradle clean build
 
