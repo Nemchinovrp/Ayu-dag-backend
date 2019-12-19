@@ -10,7 +10,7 @@ stages:
         - publishImageConfig:
             dockerfilePath: ./Dockerfile
             buildContext: .
-            tag: example-greenhouse:1.1.1
+            tag: ayu_dag_backend:1.1.1
 #  - name: Deploy
 #    steps:
 #        - applyYamlConfig:
