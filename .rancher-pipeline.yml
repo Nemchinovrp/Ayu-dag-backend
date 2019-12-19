@@ -16,9 +16,9 @@ stages:
 #        - applyYamlConfig:
 #          path: ./deployment.yaml
 
-  - name: Publish my image
-      steps:
-        - publishImageConfig:
-            dockerfilePath: ./Dockerfile
-            buildContext: .
-            tag: rancher/rancher:v2.0.0
+#  - name: Publish my image
+#      steps:
+#        - publishImageConfig:
+#            dockerfilePath: ./Dockerfile
+#            buildContext: .
+#            tag: rancher/rancher:v2.0.0
