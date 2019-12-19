@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: greenhouse-service
+  name: ayu_dag_backend-service
 spec:
   selector:
-    app: greenhouse
+    app: ayu_dag_backend
   type: NodePort
   ports:
     - protocol: TCP
@@ -14,18 +14,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-greenhouse
+  name: example-ayu_dag_backend
   labels:
-    app: greenhouse
+    app: ayu_dag_backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: greenhouse
+      app: ayu_dag_backend
   template:
     metadata:
       labels:
-        app: greenhouse
+        app: ayu_dag_backend
     spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
