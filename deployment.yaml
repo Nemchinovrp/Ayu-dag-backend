@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ayu_dag_backend-service
+  name: ayu-dag-backend-service
 spec:
   selector:
-    app: ayu_dag_backend
+    app: ayu-dag-backend
   type: NodePort
   ports:
     - protocol: TCP
@@ -14,18 +14,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-ayu_dag_backend
+  name: example-ayu-dag-backend
   labels:
-    app: ayu_dag_backend
+    app: ayu-dag-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ayu_dag_backend
+      app: ayu-dag-backend
   template:
     metadata:
       labels:
-        app: ayu_dag_backend
+        app: ayu-dag-backend
     spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
