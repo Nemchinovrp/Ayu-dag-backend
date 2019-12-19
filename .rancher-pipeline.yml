@@ -5,15 +5,14 @@ stages:
           image: gradle:6.0.1-jdk8
           shellScript: |-
             gradle clean build
-
-#  - name: Publish
-#    steps:
-#        - publishImageConfig:
-#          dockerfilePath: ./Dockerfile
-#          buildContext: .
-#          tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
-#          - name: Deploy
-#            steps:
-#              - applyYamlConfig:
-#                  path: ./deployment.yaml
+  - name: Publish
+    steps:
+        - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
+  - name: Deploy
+    steps:
+        - applyYamlConfig:
+          path: ./deployment.yaml
 
