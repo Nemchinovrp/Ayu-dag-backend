@@ -1,16 +1,8 @@
-image: gradle:6.0.1-jdk8
-
-
-variables:
-  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
-
 stages:
-  - name: build
-
-build:
-  stage: build
-  tags:
-    - gradle
-  script:
-    - 'gradle clean build'
+  - name: Build
+    steps:
+      - runScriptConfig:
+          image: gradle:6.0.1-jdk8
+          shellScript: |-
+            gradle clean
 
