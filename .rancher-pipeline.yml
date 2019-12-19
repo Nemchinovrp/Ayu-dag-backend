@@ -10,15 +10,9 @@ stages:
         - publishImageConfig:
             dockerfilePath: ./Dockerfile
             buildContext: .
-            tag: ayu_dag_backend:1.1.1
-#  - name: Deploy
-#    steps:
-#        - applyYamlConfig:
-#          path: ./deployment.yaml
+            tag: ayu_dag_backend:${CICD_EXECUTION_SEQUENCE}
+  - name: Deploy
+    steps:
+        - applyYamlConfig:
+            path: ./deployment.yaml
 
-#  - name: Publish my image
-#      steps:
-#        - publishImageConfig:
-#            dockerfilePath: ./Dockerfile
-#            buildContext: .
-#            tag: rancher/rancher:v2.0.0
