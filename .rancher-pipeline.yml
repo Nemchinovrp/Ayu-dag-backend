@@ -5,15 +5,10 @@ variables:
 
 stages:
   - name: build
-  - name: test
 
 build:
   stage: build
+  tags:
+    - gradle
   script:
-    - ./gradlew -g /cache/.gradle clean assemble
-  allow_failure: false
-
-test:
-  stage: test
-  script:
-    - ./gradlew -g /cache/.gradle check
+    - 'gradle clean build'
