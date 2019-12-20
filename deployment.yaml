@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-ayu-dag-backend
+  name: app-ayu-dag-backend
   labels:
     app: ayu-dag-backend
 spec:
