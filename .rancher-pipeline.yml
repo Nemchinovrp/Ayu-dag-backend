@@ -1,18 +1,30 @@
 stages:
   - name: Build
+    when:
+      branch: master
+      event: [ push ]
     steps:
       - runScriptConfig:
           image: gradle:6.0.1-jdk8
           shellScript: |-
             gradle clean build
   - name: Publish
+    when:
+      branch: master
+      event: [ push ]
     steps:
-        - publishImageConfig:
-            dockerfilePath: ./Dockerfile
-            buildContext: .
-            tag: ayu_dag_backend:${CICD_EXECUTION_SEQUENCE}
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: ayu_dag_backend:${CICD_EXECUTION_SEQUENCE}
   - name: Deploy
+    when:
+      branch: master
+      event: [ push ]
     steps:
-        - applyYamlConfig:
-            path: ./deployment.yaml
-
+      - applyYamlConfig:
+          path: ./deployment.yaml
+# branch conditions for the pipeline
+branch:
+  include: [ master ]
+  exclude: [ dev ]
