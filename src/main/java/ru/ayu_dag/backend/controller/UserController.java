@@ -49,6 +49,7 @@ public class UserController {
 
     @GetMapping("/api/user/all_hotel")
     public List<Hotel> getAllHotels() {
+        System.out.println("dfvdfv");
         return hotelRepository.findAll();
     }
 }
