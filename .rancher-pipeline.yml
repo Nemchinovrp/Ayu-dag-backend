@@ -7,7 +7,7 @@ stages:
       - runScriptConfig:
            image: gradle:6.0.1-jdk8
            shellScript: |-
-            gradle buildNeeded
+            gradle --refresh-dependencies
   - name: BuildDependents
     when:
       branch: master
