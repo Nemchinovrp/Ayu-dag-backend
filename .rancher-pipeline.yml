@@ -1,13 +1,14 @@
 stages:
   - name: BuildDependents
-      when:
-        branch: master
-        event: [ push ]
-      steps:
-        - runScriptConfig:
-            image: gradle:6.0.1-jdk8
-            shellScript: |-
-              gradle buildDependents
+    when:
+      branch: master
+      event: [ push ]
+    steps:
+      - runScriptConfig:
+          image: gradle:6.0.1-jdk8
+          shellScript: |-
+            gradle buildDependents
+
   - name: Build
     when:
       branch: master
@@ -17,6 +18,7 @@ stages:
           image: gradle:6.0.1-jdk8
           shellScript: |-
             gradle clean build
+
   - name: Publish
     when:
       branch: master
@@ -26,6 +28,7 @@ stages:
           dockerfilePath: ./Dockerfile
           buildContext: .
           tag: ayu_dag_backend:${CICD_EXECUTION_SEQUENCE}
+
   - name: Deploy
     when:
       branch: master
