@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,8 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
         //Cross-origin-resource-sharing: localhost:8080, localhost:4200(allow for it.)
-        http.cors().and()
+   /*     http.cors().and()
                 .authorizeRequests()
                 //These are public paths
                 .antMatchers("/resources/**", "/error", "/api/user/**", "/management/**").permitAll()
@@ -51,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().and()
                 //We will handle it later.
                 //Cross side request forgery
-                .csrf().disable();
+                .csrf().disable();*/
 
         //jwt filter
         http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtTokenProvider));

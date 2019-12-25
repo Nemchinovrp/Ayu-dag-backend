@@ -12,6 +12,7 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -29,4 +30,5 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+    implementation 'com.github.kuliginstepan:dadata-client:2.1.0'
 }
