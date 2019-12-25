@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();*/
 
         //jwt filter
-//        http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtTokenProvider));
+        http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtTokenProvider));
     }
 
 
