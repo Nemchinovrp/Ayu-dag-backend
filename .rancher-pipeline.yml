@@ -1,14 +1,5 @@
 stages:
-  - name: BuildNeeded
-    when:
-      branch: master
-      event: [ push ]
-    steps:
-      - runScriptConfig:
-           image: gradle:6.0.1-jdk8
-           shellScript: |-
-            gradle --refresh-dependencies
-  - name: BuildDependents
+  - name: RefreshDependencies
     when:
       branch: master
       event: [ push ]
@@ -16,7 +7,7 @@ stages:
       - runScriptConfig:
           image: gradle:6.0.1-jdk8
           shellScript: |-
-            gradle buildDependents
+            gradle --refresh-dependencies
 
   - name: Build
     when:
