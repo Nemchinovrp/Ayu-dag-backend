@@ -34,6 +34,6 @@ spec:
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
           ports:
             - containerPort: 8080
-#              hostPort: 8900
-#              name: 80tcp8900
-#              protocol: TCP
+              hostPort: 8900
+              name: 80tcp8900
+              protocol: TCP
