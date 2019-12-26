@@ -31,4 +31,5 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
     implementation 'com.github.kuliginstepan:dadata-client:2.1.0'
+    implementation 'io.projectreactor.netty:reactor-netty'
 }
