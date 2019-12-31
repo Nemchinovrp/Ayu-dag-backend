@@ -1,13 +1,13 @@
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
 
     <changeSet id="1" author="Romario">
         <insert tableName="hotel">
-            <column name="name" value="name" />
-            <column name="description" value="description" />
-            <column name="location" value="location" />
+            <column name="name" value="name"/>
+            <column name="description" value="description"/>
+            <column name="location" value="location"/>
         </insert>
         <rollback/>
     </changeSet>
