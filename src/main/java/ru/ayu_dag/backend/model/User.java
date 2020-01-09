@@ -25,7 +25,6 @@ public class User {
     @Column(name = "role")
     private Role role;
 
-    //Not persistent. There is no column on database table.
     @Transient
     private String token;
 }
