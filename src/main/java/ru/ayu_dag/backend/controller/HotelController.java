@@ -12,7 +12,9 @@ import ru.ayu_dag.backend.dto.HotelCreateDto;
 public class HotelController {
 
     @PostMapping(value = "/create")
-    public void createHotel(@RequestBody HotelCreateDto hotelCreateDto) {
-        System.out.println(hotelCreateDto);
+    public String createHotel(@RequestBody HotelCreateDto hotelCreateDto) {
+        String result = hotelCreateDto.toString();
+        System.out.println(result);
+        return result;
     }
 }
