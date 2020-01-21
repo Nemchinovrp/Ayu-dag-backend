@@ -23,6 +23,6 @@ public class DadataController {
 
     @GetMapping(value = "/test")
     public Hotel test() {
-        return new Hotel(1L, "name", "desc", "location");
+        return new Hotel();
     }
 }
