@@ -1,15 +1,12 @@
 package ru.ayu_dag.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.ZoneId;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -157,4 +154,7 @@ public class Address {
     private String unparsedParts;
     private String source;
     private String qc;
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Hotel hotel;
 }

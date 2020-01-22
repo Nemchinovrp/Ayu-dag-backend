@@ -7,7 +7,6 @@
         <insert tableName="hotel">
             <column name="name" value="name" />
             <column name="description" value="description" />
-            <column name="location" value="location" />
         </insert>
         <rollback/>
     </changeSet>
@@ -15,7 +14,9 @@
     <changeSet id="2" author="Romario" >
         <createTable schemaName="ayu_dag"
                      tableName="address">
-            <column name="id" type="bigint"/>
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="id"/>
+            </column>
             <column name="postal_code" type="nvarchar(256)"/>
             <column name="country" type="nvarchar(256)"/>
             <column name="country_iso_code" type="nvarchar(256)"/>

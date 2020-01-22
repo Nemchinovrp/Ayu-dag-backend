@@ -10,8 +10,6 @@ import javax.persistence.*;
 @Data
 @Entity
 @EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "hotel")
 public class Hotel {
     @Id
@@ -19,6 +17,15 @@ public class Hotel {
     private Long id;
     private String name;
     private String description;
-    private String location;
-//    private Address address;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    public Hotel() {}
+
+    public Hotel(String name, String description, Address address) {
+        this.name = name;
+        this.description = description;
+        this.address = address;
+    }
 }
