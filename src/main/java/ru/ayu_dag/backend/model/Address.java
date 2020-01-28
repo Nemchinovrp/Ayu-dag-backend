@@ -154,7 +154,6 @@ public class Address {
     private String unparsedParts;
     private String source;
     private String qc;
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
     private Hotel hotel;
 }

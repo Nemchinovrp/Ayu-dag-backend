@@ -17,7 +17,7 @@ public class Hotel {
     private Long id;
     private String name;
     private String description;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 

@@ -36,4 +36,5 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
     implementation 'com.github.kuliginstepan:dadata-client:2.1.0'
     implementation 'io.projectreactor.netty:reactor-netty'
+    compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.5'
 }
