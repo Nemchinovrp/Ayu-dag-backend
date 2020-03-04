@@ -35,6 +35,15 @@ public class UserController {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
+    @PostMapping("/api/user/hotel_owner_registration")
+    public ResponseEntity<?> hotelOwnerRegister(@RequestBody User user) {
+        if (userService.findByUsername(user.getUsername()) != null) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        user.setRole(Role.ADMIN);
+        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
+    }
+
     @GetMapping("/api/user/login")
     public ResponseEntity<?> getUser(Principal principal) {
         if (principal == null) {
