@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -38,9 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         filter.setForceEncoding(true);
         http.addFilterBefore(filter, CsrfFilter.class);
 
-        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().and().csrf().disable();
+//        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().and().csrf().disable(); // отключение security
         //Cross-origin-resource-sharing: localhost:8080, localhost:4200(allow for it.)
-   /*     http.cors().and()
+        http.cors().and()
                 .authorizeRequests()
                 //These are public paths
                 .antMatchers("/resources/**", "/error", "/api/user/**", "/management/**").permitAll()
@@ -59,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().and()
                 //We will handle it later.
                 //Cross side request forgery
-                .csrf().disable();*/
+                .csrf().disable();
 
         //jwt filter
         http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtTokenProvider));
