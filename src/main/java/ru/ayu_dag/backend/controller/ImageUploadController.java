@@ -25,7 +25,7 @@ public class ImageUploadController {
     private final MinioService minioService;
 
     @PostMapping(value = "/upload")
-    public ResponseEntity<UUID> UploadFile(@RequestParam("file") MultipartFile file)  {
+    public ResponseEntity<UUID> UploadFile(@RequestParam("file") MultipartFile file) {
         UUID uuid = UUID.randomUUID();
         Path path = Paths.get(uuid.toString());
         try {

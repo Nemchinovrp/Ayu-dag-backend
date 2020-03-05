@@ -28,10 +28,19 @@ public class UserController {
 
     @PostMapping("/api/user/registration")
     public ResponseEntity<?> register(@RequestBody User user) {
+        return registration(user, Role.USER);
+    }
+
+    @PostMapping("/api/user/hotel_owner_registration")
+    public ResponseEntity<?> hotelOwnerRegister(@RequestBody User user) {
+        return registration(user, Role.ADMIN);
+    }
+
+    private ResponseEntity registration(User user, Role role) {
         if (userService.findByUsername(user.getUsername()) != null) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
-        user.setRole(Role.USER);
+        user.setRole(role);
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
@@ -45,11 +54,5 @@ public class UserController {
         User user = userService.findByUsername(authenticationToken.getName());
         user.setToken(tokenProvider.generateToken(authenticationToken));
         return new ResponseEntity<>(user, HttpStatus.OK);
-    }
-
-    @GetMapping("/api/user/all_hotel")
-    public List<Hotel> getAllHotels() {
-        System.out.println("dfvdfv");
-        return hotelRepository.findAll();
     }
 }

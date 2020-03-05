@@ -46,8 +46,8 @@ databaseChangeLog:
                   name: description
                   type: varchar(255)
               - column:
-                  name: location
-                  type: varchar(255)
+                  name: address_id
+                  type: int
 
   - changeSet:
       id: 3

@@ -1,7 +1,5 @@
 package ru.ayu_dag.backend.model;
 
 public enum Role {
-    USER, ADMIN
+    USER, HOTEL_OWNER, ADMIN
 }
-
-
